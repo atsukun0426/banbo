@@ -25,6 +25,7 @@ gem "devise", "~> 4.7"
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 gem "carrierwave", "~> 2.1"
+gem "fog-aws", "~> 3.7"
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 
@@ -56,4 +57,5 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'jaro_winkler', '=1.5.4'
-# gem "devise", "~> 4.7"
+
+gem "dotenv-rails", "~> 2.7"
