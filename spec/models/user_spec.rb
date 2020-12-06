@@ -28,7 +28,7 @@ RSpec.describe User, type: :model do
     end
 
     it "メールアドレスが重複している場合、無効である" do
-      expect(user05).to_not be_valid
+      expect(user05).not_to be_valid
     end
   end
 end

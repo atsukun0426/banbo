@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   validates :email, presence: true, uniqueness: true
   validates :username, presence: true, uniqueness: true
+  mount_uploader :image, ImagesUploader
 
   def email_required?
     false

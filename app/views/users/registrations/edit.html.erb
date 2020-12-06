@@ -4,6 +4,11 @@
   <%= render "users/shared/error_messages", resource: resource %>
 
   <div class="form-group">
+    <%= f.label :image, "プロフィール画像"%>
+    <%= f.file_field :image, class: "form-control-file" %>
+  </div>
+
+  <div class="form-group">
       <%= f.label :username, "ユーザ名", :class => "form-label" %>
       <%= f.text_field :username, autofocus: true, autocomplete: "username", :class => "form-control" %>
   </div>

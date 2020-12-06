@@ -9,9 +9,9 @@ RSpec.describe "Sessions", type: :request do
       expect(response).to have_http_status(:success)
     end
 
-    #it 'ログインに成功すること' do
-      #post user_session_path, params: { session_form: { username: username, password: password } }
-      #expect(response).to redirect_to reservations_path
-    #end
+    # it 'ログインに成功すること' do
+    # post user_session_path, params: { session_form: { username: username, password: password } }
+    # expect(response).to redirect_to reservations_path
+    # end
   end
 end
