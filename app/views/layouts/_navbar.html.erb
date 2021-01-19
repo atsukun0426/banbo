@@ -26,12 +26,22 @@
           <li class="nav-item">
             <!---%=link_to "ユーザー一覧", users_path, class: "nav-link" %--->
           </li>
+        <% elsif organizer_signed_in? %>
+          <li class="nav-item">
+            <%= link_to "マイページ", organizer_path(current_organizer.id), class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "ログアウト", destroy_organizer_session_path, class: "nav-link", method: :delete %>
+          </li>
         <% else %>
           <li class="nav-item">
             <%=link_to "新規登録", new_user_registration_path, class: "nav-link" %>
           </li>
           <li class="nav-item">
             <%= link_to "ログイン", new_user_session_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "主催者様ログイン", new_organizer_session_path, class: "nav-link" %>
           </li>
         <% end %>
       </ul>

@@ -44,14 +44,24 @@ class Organizers::RegistrationsController < Devise::RegistrationsController
     devise_parameter_sanitizer.permit(:sign_up, keys: [:username, :email])
   end
 
+  def configure_account_update_params
+    devise_parameter_sanitizer.permit(:account_update, keys: [:image, :username, :email, :description])
+  end
 
-  # If you have extra params to permit, append them to the sanitizer.
-  # def configure_account_update_params
-  #   devise_parameter_sanitizer.permit(:account_update, keys: [:attribute])
-  # end
+  def update_resource(resource, params)
+    resource.update_without_password(params)
+  end
 
   # The path used after sign up.
   def after_sign_up_path_for(resource)
+    organizer_path(id: current_organizer.id)
+  end
+
+  def after_update_path_for(resource)
+    organizer_path(id: current_organizer.id)
+  end
+
+  def after_sign_in_path_for(resource)
     organizer_path(id: current_organizer.id)
   end
 
