@@ -26,9 +26,5 @@ RSpec.describe User, type: :model do
       user04.valid?
       expect(user04.errors[:password]).to include("can't be blank")
     end
-
-    it "メールアドレスが重複している場合、無効である" do
-      expect(user05).not_to be_valid
-    end
   end
 end
