@@ -3,4 +3,12 @@ class Organizer < ApplicationRecord
          :recoverable, :rememberable, :validatable
   validates :username, presence: true, uniqueness: true
   validates :email, presence: true, uniqueness: true
+
+  def email_required?
+    false
+  end
+
+  def email_changed?
+    false
+  end
 end
