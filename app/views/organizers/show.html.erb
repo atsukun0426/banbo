@@ -12,6 +12,9 @@
         <div class="col-md-8">
           <h4><%= @organizer.username %></h4>
           <p><%= @organizer.description %></p>
+          <% if @organizer.prefecture_id.present? %>
+            <p>居住地:<%= @organizer.prefecture.name %></p>
+          <% end %>
         </div>
         </div>
         <div class="row">

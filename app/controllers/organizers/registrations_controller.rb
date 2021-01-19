@@ -45,7 +45,7 @@ class Organizers::RegistrationsController < Devise::RegistrationsController
   end
 
   def configure_account_update_params
-    devise_parameter_sanitizer.permit(:account_update, keys: [:image, :username, :email, :description])
+    devise_parameter_sanitizer.permit(:account_update, keys: [:image, :username, :email, :prefecture_id, :description])
   end
 
   def update_resource(resource, params)
