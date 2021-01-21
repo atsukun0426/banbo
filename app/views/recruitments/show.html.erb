@@ -1,0 +1,30 @@
+<div class="container main_body">
+  <main>
+    <h2>募集内容</h2>
+    <div class="card border-primary mb-3 w-75">
+      <div class="card-body">
+        <h4 class="card-title"><%= @recruitment.title %></h4>
+      </div>
+      <ul class="list-group">
+        <% if @recruitment.prefecture.present? %>
+          <li class="list-group-item">活動場所:<%= @recruitment.prefecture.name %></li>
+        <% end %>
+        <li class="list-group-item">開催日:<%= @recruitment.date %></li>
+        <li class="list-group-item">出演料:¥<%= @recruitment.price %></li>
+      </ul>
+      <div class="card-body">
+        <p class="card-text"><%= @recruitment.content %></p>
+      </div>
+        <div class="card-body">
+          <aside class="col-md-4">
+            <h3>応募フォーム</h3>
+              <section class="request_form">
+              </section>
+          </aside>
+        </div>
+        <div class="card-body">
+          <h3>応募者一覧</h3>
+        </div>
+    </div>
+    </main>
+</div>

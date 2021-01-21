@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     registrations: 'users/registrations',
   }
   resources :users, only: [:index, :show]
+  resources :recruitments
   get 'chat/:id' => 'chats#show', as: 'chat'
   resources :chats, only: [:create]
 end

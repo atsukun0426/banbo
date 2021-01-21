@@ -27,6 +27,7 @@ gem "devise", "~> 4.7"
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 gem "carrierwave", "~> 2.1"
+gem "kaminari", "~> 1.2"
 gem "fog-aws", "~> 3.7"
 gem "active_hash", "~> 3.1"
 gem "haml-rails", "~> 2.0"
