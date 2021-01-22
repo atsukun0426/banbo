@@ -8,6 +8,7 @@ class User < ApplicationRecord
   mount_uploader :image, ImagesUploader
   has_many :user_rooms
   has_many :chats
+  has_many :requests, dependent: :destroy
 
   def email_required?
     false
