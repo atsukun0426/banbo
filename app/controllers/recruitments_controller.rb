@@ -20,6 +20,8 @@ class RecruitmentsController < ApplicationController
 
   def show
     @recruitment = Recruitment.find(params[:id])
+    @requests = @recruitment.requests
+    @request = Request.new
   end
 
   private

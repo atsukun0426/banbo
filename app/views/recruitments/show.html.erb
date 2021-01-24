@@ -27,6 +27,10 @@
       <% end %>
         <div class="card-body">
           <h3>応募者一覧</h3>
+          <% @requests.each do |request| %>
+        　  <li class="list-group-item"><a href="/users/<%= request.user.id %>"><%= request.user.username %></a></li>
+            <!---li class="list-group-item">応募者: <%= request.name %></li--->
+          <% end %>
         </div>
     </div>
     </main>

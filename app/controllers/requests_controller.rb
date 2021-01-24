@@ -1,6 +1,6 @@
 class RequestsController < ApplicationController
   def index
-    #@recruitment = Recruitment.find(params[:id])
+    # @recruitment = Recruitment.find(params[:id])
   end
 
   def new
