@@ -3,7 +3,7 @@ require 'carrierwave/storage/file'
 require 'carrierwave/storage/fog'
 
 CarrierWave.configure do |config|
-  #config.storage :fog
+  config.storage :fog
   config.fog_provider = 'fog/aws'
   config.fog_directory  = 'banbo'
   config.fog_credentials = {
@@ -13,5 +13,4 @@ CarrierWave.configure do |config|
     region: ENV['AWS_S3_REGION'],
     path_style: true
   }
-
 end

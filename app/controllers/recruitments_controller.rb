@@ -31,6 +31,6 @@ class RecruitmentsController < ApplicationController
   private
 
   def recruitment_params
-    params.require(:recruitment).permit(:title, :prefecture_id, :date, :price, :content)
+    params.require(:recruitment).permit(:title, :prefecture_id, :music_genre_id,:date, :price, :content)
   end
 end

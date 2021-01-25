@@ -9,8 +9,11 @@
         <% if @recruitment.prefecture.present? %>
           <li class="list-group-item">開催場所:<%= @recruitment.prefecture.name %></li>
         <% end %>
+        <% if @recruitment.music_genre.present? %>
+          <li class="list-group-item">音楽ジャンル:<%= @recruitment.music_genre.name %></li>
+        <% end %>
         <li class="list-group-item">開催日:<%= @recruitment.date %></li>
-        <li class="list-group-item">出演料:¥<%= @recruitment.price %></li>
+        <li class="list-group-item">出演料:<%= number_to_currency(@recruitment.price, :unit => "￥") %></li>
       </ul>
       <div class="card-body">
         <p class="card-text"><%= @recruitment.content %></p>
