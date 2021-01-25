@@ -17,7 +17,7 @@ RSpec.describe User, type: :model do
       expect(user02.errors[:username]).to include("can't be blank")
     end
 
-    it "メールがない場合、無効である" do
+    it "メールアドレスがない場合、無効である" do
       user03.valid?
       expect(user03.errors[:email]).to include("can't be blank")
     end
