@@ -12,9 +12,12 @@ Rails.application.routes.draw do
     passwords: 'users/passwords',
     registrations: 'users/registrations',
   }
-  resources :users, only: [:index, :show]
+  resources :users, only: [:index, :show] do
+    get :likes, on: :collection
+  end
   resources :recruitments do
     resources :requests, only: [:index, :create, :destroy]
+    resource :likes, only: [:create, :destroy]
   end
   get 'chat/:id' => 'chats#show', as: 'chat'
   resources :chats, only: [:create]
