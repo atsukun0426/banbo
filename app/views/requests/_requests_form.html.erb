@@ -10,11 +10,15 @@
     <%= f.text_field :group_name, autofocus: true, autocomplete: "group_name", class: "form-control"%>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :email, "メールアドレス" %><br/>
     <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
   </div>
 
+  <div class="form-group">
+    <%= f.label :music_file, "サンプル音源" %>
+    <%= f.file_field :music_file , :size => 140 %>
+  </div>
 
   <div class="form-group">
     <%= f.text_area :content, placeholder: "コメントを入力して下さい。", class: "form-control" %>

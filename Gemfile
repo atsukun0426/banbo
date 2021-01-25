@@ -30,6 +30,7 @@ gem "devise-i18n", "~> 1.9"
 # gem 'image_processing', '~> 1.2'
 # gem "jquery-rails", "~> 4.4"
 gem "carrierwave", "~> 2.1"
+gem "audiojs-rails", "~> 1.0"
 gem "kaminari", "~> 1.2"
 gem "fog-aws", "~> 3.7"
 gem "active_hash", "~> 3.1"

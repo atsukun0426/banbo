@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe User, type: :model do
   describe "create" do
     let(:user) { FactoryBot.build(:user) }
-    #let(:user01) { User.new(username: 'test', email: 'test@example.com', password: "password") }
+    # let(:user01) { User.new(username: 'test', email: 'test@example.com', password: "password") }
     let(:user02) { User.new(username: nil, email: 'test@example02.com', password: "password") }
     let(:user03) { User.new(username: 'test', email: nil, password: "password") }
     let(:user04) { User.new(username: 'test', email: 'test@example03.com', password: nil) }
