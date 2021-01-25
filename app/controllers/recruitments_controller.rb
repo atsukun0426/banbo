@@ -3,6 +3,10 @@ class RecruitmentsController < ApplicationController
     @recruitments = Recruitment.page(params[:page]).per(20)
   end
 
+  def new
+    @recruitment = Recruitment.new
+  end
+
   def create
     @recruitment = current_organizer.recruitments.build(recruitment_params)
     if @recruitment.save
