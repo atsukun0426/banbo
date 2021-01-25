@@ -28,7 +28,7 @@ gem "rails-i18n", "~> 6.0"
 gem "devise-i18n", "~> 1.9"
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
-#gem "jquery-rails", "~> 4.4"
+# gem "jquery-rails", "~> 4.4"
 gem "carrierwave", "~> 2.1"
 gem "kaminari", "~> 1.2"
 gem "fog-aws", "~> 3.7"

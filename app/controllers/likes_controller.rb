@@ -1,5 +1,4 @@
 class LikesController < ApplicationController
-
   def create
     @recruitment = Recruitment.find(params[:recruitment_id])
     like = current_user.likes.build(recruitment_id: params[:recruitment_id])
