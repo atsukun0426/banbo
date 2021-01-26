@@ -4,6 +4,9 @@
     <div class="card border-primary mb-3 w-75">
       <div class="card-body">
         <h4 class="card-title"><%= @recruitment.title %></h4>
+        <div class='star-btn' id="like_<%= @recruitment.id %>">
+          <%= render "likes/like", recruitment: @recruitment %>
+        </div>
       </div>
       <ul class="list-group">
         <% if @recruitment.prefecture.present? %>
@@ -18,19 +21,15 @@
       <div class="card-body">
         <p class="card-text"><%= @recruitment.content %></p>
       </div>
-      <div class='star-btn' id="like_<%= @recruitment.id %>">
-        <%= render "likes/like", recruitment: @recruitment %>
-      </div>
       <% if current_user %>
         <div class="card-body">
-          <aside class="col-md-4">
             <h3>応募フォーム</h3>
             <section class="recruitment_form">
               <%= render '/requests/requests_form' %>
             </section>
-          </aside>
         </div>
       <% end %>
+      <% if current_user == User %>
         <div class="card-body">
           <h3>応募者一覧</h3>
           <% @requests.each do |request| %>
@@ -38,6 +37,7 @@
             <!---li class="list-group-item">応募者: <%= request.name %></li--->
           <% end %>
         </div>
+        <% end %>
     </div>
     </main>
 </div>

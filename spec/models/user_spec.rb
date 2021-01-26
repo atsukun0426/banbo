@@ -14,18 +14,15 @@ RSpec.describe User, type: :model do
     end
 
     it "ユーザーネームがない場合、無効である" do
-      user02.valid?
-      expect(user02.errors[:username]).to include("can't be blank")
+      expect(user02).not_to be_valid
     end
 
     it "メールアドレスがない場合、無効である" do
-      user03.valid?
-      expect(user03.errors[:email]).to include("can't be blank")
+      expect(user03).not_to be_valid
     end
 
     it "パスワードがない場合、無効である" do
-      user04.valid?
-      expect(user04.errors[:password]).to include("can't be blank")
+      expect(user04).not_to be_valid
     end
   end
 end

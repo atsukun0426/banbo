@@ -1,5 +1,6 @@
 class RecruitmentsController < ApplicationController
   def index
+    # @search_params = recruitment_search_params
     @recruitments = Recruitment.page(params[:page]).per(20)
   end
 
@@ -32,5 +33,9 @@ class RecruitmentsController < ApplicationController
 
   def recruitment_params
     params.require(:recruitment).permit(:title, :prefecture_id, :music_genre_id, :date, :price, :content)
+  end
+
+  def recruitment_search_params
+    params.fetch(:search, {}).permit(:title, :music_genre_id, :prefecture_id)
   end
 end
