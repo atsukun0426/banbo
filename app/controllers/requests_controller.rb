@@ -11,9 +11,14 @@ class RequestsController < ApplicationController
     end
   end
 
+  def user_requests
+    user = User.find(request_params[:user_id])
+    @user_requests = user.requests
+  end
+
   private
 
   def request_params
-    params.require(:request).permit(:name, :email, :group_name, :content)
+    params.require(:request).permit(:user_id, :name, :email, :group_name, :content)
   end
 end

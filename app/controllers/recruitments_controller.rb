@@ -32,10 +32,15 @@ class RecruitmentsController < ApplicationController
     @requests = @recruitment.requests
   end
 
+  def organizer_recruitments
+    organizer = Organizer.find(recruitment_params[:organizer_id])
+    @organizer_recruitments = organizer.recruitments
+  end
+
   private
 
   def recruitment_params
-    params.require(:recruitment).permit(:title, :prefecture_id, :music_genre_id, :date, :price, :content)
+    params.require(:recruitment).permit(:organizer_id, :title, :prefecture_id, :music_genre_id, :date, :price, :content)
   end
 
   def recruitment_search_params

@@ -1,15 +1,21 @@
 Rails.application.routes.draw do
   get 'organizers/show'
   root to: 'home#top'
+
   devise_for :organizers, controllers: {
     sessions: 'organizers/sessions',
     passwords: 'organizers/passwords',
     registrations: 'organizers/registrations',
   }
+
   devise_scope :organizer do
     post 'organizers/guest_sign_in', to: 'organizers/sessions#new_guest'
   end
+
   resources :organizers, only: [:index, :show]
+
+  post 'organizer_recruitments', to: 'recruitments#organizer_recruitments'
+
   devise_for :users, controllers: {
     sessions: 'users/sessions',
     passwords: 'users/passwords',
@@ -25,6 +31,7 @@ Rails.application.routes.draw do
     resources :requests, only: [:create, :destroy]
     resource :likes, only: [:create, :destroy]
   end
+  post 'user_requests', to: 'requests#user_requests'
   get 'chat/:id' => 'chats#show', as: 'chat'
   resources :chats, only: [:create]
 end
