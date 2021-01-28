@@ -6,12 +6,18 @@ Rails.application.routes.draw do
     passwords: 'organizers/passwords',
     registrations: 'organizers/registrations',
   }
+  devise_scope :organizer do
+    post 'organizers/guest_sign_in', to: 'organizers/sessions#new_guest'
+  end
   resources :organizers, only: [:index, :show]
   devise_for :users, controllers: {
     sessions: 'users/sessions',
     passwords: 'users/passwords',
     registrations: 'users/registrations',
   }
+  devise_scope :user do
+    post 'users/guest_sign_in', to: 'users/sessions#new_guest'
+  end
   resources :users, only: [:index, :show] do
     get :likes, on: :collection
   end
