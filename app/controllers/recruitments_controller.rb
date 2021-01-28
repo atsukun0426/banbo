@@ -1,5 +1,5 @@
 class RecruitmentsController < ApplicationController
-  before_action :authenticate_organizer!, only: [:create, :edit, :update, :destroy]
+  before_action :authenticate_organizer!, only: [:new, :create, :edit, :update, :destroy]
 
   def index
     @q = Recruitment.ransack(params[:q])
