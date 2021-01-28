@@ -29,7 +29,7 @@
             </section>
         </div>
       <% end %>
-      <% if current_user == User %>
+      <% if current_organizer.id == @recruitment.id  %>
         <div class="card-body">
           <h3>応募者一覧</h3>
           <% @requests.each do |request| %>

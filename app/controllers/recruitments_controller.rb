@@ -1,7 +1,8 @@
 class RecruitmentsController < ApplicationController
   def index
-    # @search_params = recruitment_search_params
-    @recruitments = Recruitment.page(params[:page]).per(20)
+    @q = Recruitment.ransack(params[:q])
+    @recruitments = @q.result(distinct: true)
+    #@recruitments = Recruitment.page(params[:page]).per(20)
   end
 
   def new

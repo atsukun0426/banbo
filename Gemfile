@@ -35,6 +35,7 @@ gem "kaminari", "~> 1.2"
 gem "fog-aws", "~> 3.7"
 gem "active_hash", "~> 3.1"
 gem "haml-rails", "~> 2.0"
+gem "ransack", "~> 2.4"
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 
