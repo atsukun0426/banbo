@@ -1,3 +1,5 @@
 <% @organizer_recruitments.each do |organizer_recruitment| %>
-  <h1><%= organizer_recruitment.id %><h1>
+<div class="list-group">
+  <%= link_to organizer_recruitment.title, organizer_recruitment, class: "list-group-item list-group-item-action" %>
+</div>
 <% end %>
