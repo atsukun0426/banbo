@@ -7,6 +7,9 @@
         <div class='star-btn' id="like_<%= @recruitment.id %>">
           <%= render "likes/like", recruitment: @recruitment %>
         </div>
+        <% if @recruitment.organizer.id == current_organizer.id %>
+        <%= link_to "削除", recruitment_path, method: :delete %>
+        <% end %>
       </div>
       <ul class="list-group">
         <% if @recruitment.prefecture.present? %>
@@ -25,19 +28,13 @@
         <div class="card-body">
             <h3>応募フォーム</h3>
             <section class="recruitment_form">
-              <%= render '/requests/requests_form' %>
+              <%= render partial: '/requests/requests_form', locals: { request: @request, recruitment: @recruitment } %>
             </section>
         </div>
       <% end %>
-      <% if current_organizer.id == @recruitment.id  %>
         <div class="card-body">
-          <h3>応募者一覧</h3>
-          <% @requests.each do |request| %>
-        　  <li class="list-group-item"><a href="/users/<%= request.user.id %>"><%= request.user.username %></a></li>
-            <!---li class="list-group-item">応募者: <%= request.name %></li--->
-          <% end %>
+          <%= render partial: '/requests/requests', locals: { requests: @requests } %>
         </div>
-        <% end %>
     </div>
     </main>
 </div>

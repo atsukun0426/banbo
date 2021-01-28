@@ -1,13 +1,5 @@
 class RequestsController < ApplicationController
-  def index
-    @recruitment = Recruitment.find(params[:id])
-    @requests = @recruitment.requests
-  end
-
-  def new
-    @request = Request.new
-  end
-
+  before_action :authenticate_user!, only: [:create, :destroy]
   def create
     @recruitment = Recruitment.find(params[:recruitment_id])
     @request = @recruitment.requests.build(request_params)

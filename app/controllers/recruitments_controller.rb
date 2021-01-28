@@ -1,8 +1,9 @@
 class RecruitmentsController < ApplicationController
+  before_action :authenticate_organizer!, only: [:create, :edit, :update, :destroy]
+
   def index
     @q = Recruitment.ransack(params[:q])
     @recruitments = @q.result(distinct: true)
-    #@recruitments = Recruitment.page(params[:page]).per(20)
   end
 
   def new
@@ -20,14 +21,15 @@ class RecruitmentsController < ApplicationController
   end
 
   def destroy
-    recruitment = Recruitment.find(params[:id])
-    recruitment.destroy if recruitment.organizer_id == current_organizer.id
+    @recruitment = Recruitment.find(params[:id])
+    @recruitment.destroy if @recruitment.organizer_id == current_organizer.id
+    redirect_to organizer_path(current_organizer.id)
   end
 
   def show
     @recruitment = Recruitment.find(params[:id])
-    @requests = @recruitment.requests
     @request = Request.new
+    @requests = @recruitment.requests
   end
 
   private

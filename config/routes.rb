@@ -15,8 +15,8 @@ Rails.application.routes.draw do
   resources :users, only: [:index, :show] do
     get :likes, on: :collection
   end
-  resources :recruitments do
-    resources :requests, only: [:index, :create, :destroy]
+  resources :recruitments, only: [:index, :new, :create, :show, :edit, :update, :destroy] do
+    resources :requests, only: [:create, :destroy]
     resource :likes, only: [:create, :destroy]
   end
   get 'chat/:id' => 'chats#show', as: 'chat'
