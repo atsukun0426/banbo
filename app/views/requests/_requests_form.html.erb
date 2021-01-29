@@ -1,4 +1,4 @@
-<%= form_with(model: [recruitment, request] ) do |f| %>
+<%= form_with(model: [@recruitment, @request] ) do |f| %>
   <!---%= render 'shared/error_messages', object: f.object %--->
   <div class="form-group">
     <%= f.label :name, "応募者名"%><br/>

@@ -1,7 +1,7 @@
 class RequestsController < ApplicationController
   before_action :authenticate_user!, only: [:create, :destroy]
   def new
-    @recruitment = Recruitment.find(params[:recruitment_id])
+    @request = Request.new
   end
 
   def create
@@ -28,6 +28,6 @@ class RequestsController < ApplicationController
   private
 
   def request_params
-    params.require(:request).permit(:user_id, :recruitment_id ,:name, :email, :group_name, :content)
+    params.require(:request).permit(:user_id, :recruitment_id, :name, :email, :group_name, :content)
   end
 end

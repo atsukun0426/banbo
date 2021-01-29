@@ -1,5 +1,6 @@
 <% @organizer_recruitments.each do |recruitment| %>
 <div class="list-group">
   <%= link_to recruitment.title, recruitment, class: "list-group-item list-group-item-action" %>
+  <%= link_to "応募者一覧", recruitments_requests_path(request:{recruitment_id: recruitment.id }), method: :get %>
 </div>
 <% end %>
