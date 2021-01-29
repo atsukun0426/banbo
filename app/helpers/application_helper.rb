@@ -1,10 +1,9 @@
 module ApplicationHelper
-  def full_title(page_title = "")
-    base_title = "Banboapp"
+  def full_title(page_title: '')
     if page_title.empty?
-      base_title
+      Constants::WEB_TITLE
     else
-      page_title + " | " + base_title
+      "#{page_title} | #{Constants::WEB_TITLE}"
     end
   end
 end

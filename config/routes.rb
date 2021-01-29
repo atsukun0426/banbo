@@ -31,6 +31,7 @@ Rails.application.routes.draw do
     resources :requests, only: [:create, :destroy]
     resource :likes, only: [:create, :destroy]
   end
+  get 'recruitments_requests', to: 'requests#recruitments_requests'
   get 'user_requests', to: 'requests#user_requests'
   get 'users_likes', to: 'likes#users_likes'
   get 'chat/:id' => 'chats#show', as: 'chat'
