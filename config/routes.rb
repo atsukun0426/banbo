@@ -14,7 +14,7 @@ Rails.application.routes.draw do
 
   resources :organizers, only: [:index, :show]
 
-  post 'organizer_recruitments', to: 'recruitments#organizer_recruitments'
+  get 'organizer_recruitments', to: 'recruitments#organizer_recruitments'
 
   devise_for :users, controllers: {
     sessions: 'users/sessions',
@@ -31,7 +31,8 @@ Rails.application.routes.draw do
     resources :requests, only: [:create, :destroy]
     resource :likes, only: [:create, :destroy]
   end
-  post 'user_requests', to: 'requests#user_requests'
+  get 'user_requests', to: 'requests#user_requests'
+  get 'users_likes', to: 'likes#users_likes'
   get 'chat/:id' => 'chats#show', as: 'chat'
   resources :chats, only: [:create]
 end

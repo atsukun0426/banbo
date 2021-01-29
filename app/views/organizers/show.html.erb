@@ -16,7 +16,7 @@
             <p>居住地:<%= @organizer.prefecture.name %></p>
           <% end %>
         </div>
-       <%= link_to "募集一覧", organizer_recruitments_path(recruitment:{organizer_id: @organizer.id }), method: :post %>
+       <%= link_to "募集一覧", organizer_recruitments_path(recruitment:{organizer_id: @organizer.id }), method: :get %>
         </div>
         <div class="row">
           <div class="col-md-10 py-4">

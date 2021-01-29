@@ -12,8 +12,8 @@ class RequestsController < ApplicationController
   end
 
   def user_requests
-    user = User.find(request_params[:user_id])
-    @user_requests = user.requests
+    requests = Request.where(user_id: current_user.id).pluck(:recruitment_id)
+    @user_requests = Recruitment.find(requests)
   end
 
   private

@@ -7,9 +7,9 @@
         <div class='star-btn' id="like_<%= @recruitment.id %>">
           <%= render "likes/like", recruitment: @recruitment %>
         </div>
-        <% if @recruitment.organizer.id == current_organizer.id %>
-        <%= link_to "削除", recruitment_path, method: :delete %>
-        <% end %>
+        <!---% if @recruitment.organizer.id == current_organizer.id %-->
+        <!--%= link_to "削除", recruitment_path, method: :delete %-->
+        <!--% end %-->
       </div>
       <ul class="list-group">
         <% if @recruitment.prefecture.present? %>
