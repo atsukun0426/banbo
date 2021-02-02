@@ -28,6 +28,9 @@
             <%= link_to "マイページ", organizer_path(current_organizer.id), class: "nav-link" %>
           </li>
           <li class="nav-item">
+            <%=link_to "募集一覧", recruitments_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item">
             <%= link_to "ログアウト", destroy_organizer_session_path, class: "nav-link", method: :delete %>
           </li>
         <% else %>

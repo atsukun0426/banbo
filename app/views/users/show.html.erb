@@ -22,8 +22,8 @@
           <div class="col-md-10 py-4">
             <% if current_user.id == @user.id %>
               <a href="<%= edit_user_registration_path %>" class="btn btn-info">プロフィール編集</a>
-              <%= link_to "応募一覧", user_requests_path(request:{user_id: @user.id }), method: :get %>
-              <%= link_to "お気に入り一覧", users_likes_path, method: :get %>
+              <a href="<%= user_requests_path(request:{ user_id: @user.id }) %>" class="btn btn-info">応募一覧</a>
+              <a href="<%= users_likes_path %>" class="btn btn-info">お気に入り一覧</a>
                </div>
             <% end %>
             <% if current_user != @user %>

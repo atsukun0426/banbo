@@ -17,14 +17,13 @@
             <p>居住地:<%= @organizer.prefecture.name %></p>
           <% end %>
         </div>
-       <%= link_to "募集一覧", organizer_recruitments_path(recruitment:{organizer_id: @organizer.id }), method: :get %>
         </div>
         <div class="row">
           <div class="col-md-10 py-4">
             <% if current_organizer.id == @organizer.id %>
               <a href="<%= edit_organizer_registration_path %>" class="btn btn-info">プロフィール編集</a>
               <a href="<%= new_recruitment_path %>" class="btn btn-info">出演募集する</a>
-              <a href="<%= recruitments_path %>" class="btn btn-info">募集一覧</a>
+              <a href="<%= organizer_recruitments_path(recruitment:{organizer_id: @organizer.id }) %>" class="btn btn-info">マイ募集</a>
             <% end %>
           </div>
         </div>
