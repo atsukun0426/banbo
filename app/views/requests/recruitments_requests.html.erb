@@ -1,4 +1,0 @@
-<h3>応募者一覧</h3>
-<% @recruitments_requests.each do |request| %>
-　  <li class="list-group-item"><a href="/users/<%= request.user.id %>"><%= request.user.username %></a></li>
-<% end %>

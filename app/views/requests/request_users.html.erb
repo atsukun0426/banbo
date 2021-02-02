@@ -1,0 +1,4 @@
+<h3>応募者一覧</h3>
+<% @request_users.each do |request| %>
+  <li class="list-group-item"><a href="/recruitments/<%= request.recruitment.id %>/requests/<%= request.id %>"><%= request.name %></a></li>
+<% end %>

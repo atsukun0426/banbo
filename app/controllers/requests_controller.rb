@@ -4,6 +4,10 @@ class RequestsController < ApplicationController
     @request = Request.new
   end
 
+  def show
+    @request = Request.find(params[:id])
+  end
+
   def create
     @recruitment = Recruitment.find(params[:recruitment_id])
     @request = @recruitment.requests.build(request_params)
@@ -20,9 +24,13 @@ class RequestsController < ApplicationController
     @user_requests = Recruitment.find(requests)
   end
 
-  def recruitments_requests
+  def request_users
     recruitment = Recruitment.find(request_params[:recruitment_id])
-    @recruitments_requests = recruitment.requests
+    @request_users = recruitment.requests
+  end
+
+  def request_user
+    @requests = Request.find(request_params[:recruitment_id])
   end
 
   private

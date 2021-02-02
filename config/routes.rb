@@ -28,10 +28,11 @@ Rails.application.routes.draw do
     get :likes, on: :collection
   end
   resources :recruitments, only: [:index, :new, :create, :show, :edit, :update, :destroy] do
-    resources :requests, only: [:create, :destroy]
+    resources :requests, only: [:show, :create, :destroy]
     resource :likes, only: [:create, :destroy]
   end
-  get 'recruitments_requests', to: 'requests#recruitments_requests'
+  get 'request_users', to: 'requests#request_users'
+  get 'request_user', to: 'requests#request_user'
   get 'user_requests', to: 'requests#user_requests'
   get 'users_likes', to: 'likes#users_likes'
   get 'chat/:id' => 'chats#show', as: 'chat'
