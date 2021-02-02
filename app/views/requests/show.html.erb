@@ -1,4 +1,22 @@
-<h1><%= @request.name %></h1>
-<h1><%= @request.group_name %></h1>
-<h1><%= @request.email %></h1>
-<h1><%= @request.content %></h1>
+<% provide(:title, @request.name) %>
+<div class="container main_body">
+  <main>
+    <h2>応募者詳細</h2>
+    <div class="card border-primary mb-3 w-75">
+      <div class="card-body">
+        <h4 class="card-title"><%= @request.name %></h4>
+      </div>
+      <ul class="list-group">
+        <li class="list-group-item">グループ名:<%= @request.group_name %></li>
+        <li class="list-group-item">連絡先:<%= @request.email %></li>
+        <li class="list-group-item">特記事項:<%= @request.content %></li>
+      </ul>
+      <div class="card-body">
+        <p class="card-text">特記事項:<%= @request.content %></p>
+      </div>
+        <div class="card-body">
+          <!--%= link_to "応募者一覧", recruitments_requests_path(request:{recruitment_id: @recruitment.id }), method: :get %-->
+        </div>
+    </div>
+    </main>
+</div>
