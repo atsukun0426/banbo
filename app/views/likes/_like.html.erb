@@ -1,9 +1,9 @@
 <% if user_signed_in? %>
     <% if !Like.exists?(user_id: current_user.id, recruitment_id: recruitment.id) %>
-      <p><span>お気に入り登録: </span><%=link_to recruitment.likes.count, recruitment_likes_path(recruitment.id), method: :post, remote: true %></p>
+      <p><%=link_to "気になる", recruitment_likes_path(recruitment.id), method: :post, remote: true, class: "btn btn-success" %></p>
     <% else %>
-      <p><span>お気に入り解除: </span><%=link_to recruitment.likes.count, recruitment_likes_path(recruitment.id), method: :delete, remote: true %></p>
+      <p><%=link_to "気になる解除", recruitment_likes_path(recruitment.id), method: :delete, remote: true, class: "btn btn-danger" %></p>
     <% end %>
 <% else %>
-    <p><span>お気に入り数: </span><%= recruitment.likes.count %></p>
+    <p><span>気になる数: </span><%= recruitment.likes.count %></p>
 <% end %>

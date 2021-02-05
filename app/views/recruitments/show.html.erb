@@ -1,17 +1,19 @@
 <% provide(:title, @recruitment.title) %>
 <div class="container main_body">
   <main>
-    <h2>募集内容</h2>
+    <h2><%= @recruitment.title %></h2>
     <div class="card border-primary mb-3 w-75">
       <div class="card-body">
-        <h4 class="card-title"><%= @recruitment.title %></h4>
         <div class='star-btn' id="like_<%= @recruitment.id %>">
           <%= render "likes/like", recruitment: @recruitment %>
         </div>
-        <!--% if @recruitment.organizer.id == current_organizer.id %-->
-          <!--%= link_to "削除", recruitment_path, method: :delete %-->
-        <!--% end %-->
+        <% if current_organizer %>
+          <% if current_organizer.id == @recruitment.organizer.id %>
+            <%= link_to "削除", recruitment_path, method: :delete %>
+          <% end %>
+        <% end %>
       </div>
+      <p class="card-text"><%= @recruitment.content %></p>
       <ul class="list-group">
         <% if @recruitment.prefecture.present? %>
           <li class="list-group-item">開催場所:<%= @recruitment.prefecture.name %></li>
@@ -22,9 +24,6 @@
         <li class="list-group-item">開催日:<%= @recruitment.date %></li>
         <li class="list-group-item">出演料:<%= number_to_currency(@recruitment.price, :unit => "￥") %></li>
       </ul>
-      <div class="card-body">
-        <p class="card-text"><%= @recruitment.content %></p>
-      </div>
       <% if current_user %>
         <div class="card-body">
             <h3>応募フォーム</h3>

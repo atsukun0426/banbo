@@ -23,7 +23,7 @@
             <% if current_organizer.id == @organizer.id %>
               <a href="<%= edit_organizer_registration_path %>" class="btn btn-info">プロフィール編集</a>
               <a href="<%= new_recruitment_path %>" class="btn btn-info">出演募集する</a>
-              <a href="<%= organizer_recruitments_path(recruitment:{organizer_id: @organizer.id }) %>" class="btn btn-info">マイ募集</a>
+              <a href="<%= organizer_recruitments_path(recruitment:{organizer_id: @organizer.id }) %>" class="btn btn-primary">マイ募集</a>
             <% end %>
           </div>
         </div>

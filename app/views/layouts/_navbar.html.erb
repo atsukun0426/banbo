@@ -1,53 +1,59 @@
-<nav class="navbar navbar-expand-md navbar-dark bg-dark sticky-top">
-  <!--サブコンポーネント-->
+<nav class="navbar navbar-expand-lg navbar-dark" style="background-color:#000033;">
   <div class="container">
-    <%=link_to "バンボ！", root_path,  class: "nav-link" %>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-content"
-            aria-controls="navbar-content" aria-expanded="false" aria-label="Toggle navigation">
+    <a class="navbar-brand " href="<%= root_path %>">バンボ</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <!--ナビゲーション-->
-    <div class="collapse navbar-collapse" id="navbar-content">
-      <!--ナビゲーションメニュー-->
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <%=link_to "TOP", root_path, class: "nav-link" %>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav mr-auto">　
+        <li class="nav-item">
+          <a class="nav-link" href="<%= root_path %>">TOP</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">About</a>
+        </li>
+        <li class="nav-item">
+          <%=link_to "募集一覧", recruitments_path, class: "nav-link" %>
+        </li>
+      </ul>
+
+      <ul class="navbar-nav">
         <% if user_signed_in? %>
-          <li class="nav-item">
-            <%= link_to "マイページ", user_path(current_user.id), class: "nav-link" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "ログアウト", destroy_user_session_path, class: "nav-link", method: :delete %>
-          </li>
-          <li class="nav-item">
-            <%=link_to "募集一覧", recruitments_path, class: "nav-link" %>
-          </li>
+        <li class="nav-item">
+          <%= link_to "気になるリスト", users_likes_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item dropdown">
+         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+           <%= current_user.username %>
+         </a>
+         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+           <%= link_to "マイページ", user_path(current_user.id), class: "dropdown-item" %>
+           <%= link_to "プロフィール編集", edit_user_registration_path, class: "dropdown-item" %>
+           <div class="dropdown-divider"></div>
+           <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+         </div>
+        </li>
         <% elsif organizer_signed_in? %>
-          <li class="nav-item">
-            <%= link_to "マイページ", organizer_path(current_organizer.id), class: "nav-link" %>
-          </li>
-          <li class="nav-item">
-            <%=link_to "募集一覧", recruitments_path, class: "nav-link" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "ログアウト", destroy_organizer_session_path, class: "nav-link", method: :delete %>
-          </li>
+        <li class="nav-item dropdown">
+         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+           <%= current_organizer.username %>
+         </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <%= link_to "マイページ", organizer_path(current_organizer.id), class: "dropdown-item" %>
+            <%= link_to "プロフィール編集", edit_organizer_registration_path, class: "dropdown-item" %>
+            <div class="dropdown-divider"></div>
+            <%= link_to "ログアウト", destroy_organizer_session_path, class: "dropdown-item", method: :delete %>
+          </div>
+        </li>
         <% else %>
           <li class="nav-item">
-            <%=link_to "新規登録", new_user_registration_path, class: "nav-link" %>
-          </li>
-          <li>
-            <%= link_to 'ゲストログイン（ユーザー）', users_guest_sign_in_path, method: :post, class: "nav-link" %>
+            <%= link_to "新規登録", new_user_registration_path, class: "nav-link" %>
           </li>
           <li class="nav-item">
-            <%= link_to "ログイン", new_user_session_path, class: "nav-link" %>
-          </li>
-          <li>
-            <%= link_to 'ゲストログイン（主催者）', organizers_guest_sign_in_path, method: :post, class: "nav-link" %>
+            <%= link_to "ログイン", new_user_session_path, class: "nav-link"%>
           </li>
           <li class="nav-item">
-            <%= link_to "主催者様ログイン", new_organizer_session_path, class: "nav-link" %>
+            <%= link_to "主催者様はこちら", new_organizer_session_path, class: "nav-link"%>
           </li>
         <% end %>
       </ul>

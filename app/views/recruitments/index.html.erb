@@ -6,10 +6,14 @@
  <%= f.collection_select :music_genre_id_eq, MusicGenre.all, :id, :name, :include_blank => '指定なし' %>
  <%= f.submit "検索" %>
 <% end %>
+
 <% @recruitments.each do |recruitment| %>
-  <div class="list-group">
-    <%= link_to recruitment.title, recruitment, class: "list-group-item list-group-item-action" %>
-    <p class="list-group-item"><%= recruitment.prefecture.name %></p>
-    <p class="list-group-item"><%= recruitment.music_genre.name %></p>
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title"><%= recruitment.title %></h5>
+　　　 <h6 class="card-subtitle mb-2 text-muted"><%= recruitment.prefecture.name %></h6>
+       <h6 class="card-subtitle mb-2 text-muted"><%= recruitment.music_genre.name %></h6>
+       <%= link_to "詳細へ", recruitment, class: "btn btn-primary"%>
+    </div>
   </div>
 <% end %>

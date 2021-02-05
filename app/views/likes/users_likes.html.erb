@@ -1,5 +1,9 @@
-<% @users_likes.each do |recruitment| %>
-<div class="list-group">
-  <%= link_to recruitment.title, recruitment, class: "list-group-item list-group-item-action" %>
-</div>
+<% if !@users_likes.empty? %>
+  <% @users_likes.each do |recruitment| %>
+    <div class="list-group">
+      <%= link_to recruitment.title, recruitment, class: "list-group-item list-group-item-action" %>
+    </div>
+  <% end %>
+<% else %>
+  <h6>気になるリストはありません。</h6>
 <% end %>
