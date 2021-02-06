@@ -1,7 +1,9 @@
 class RequestsController < ApplicationController
   before_action :authenticate_user!, only: [:create, :destroy]
+
   def new
     @request = Request.new
+    @recruitment = Recruitment.find(params[:recruitment_id])
   end
 
   def show

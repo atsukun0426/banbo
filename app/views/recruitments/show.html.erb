@@ -28,7 +28,8 @@
         <div class="card-body">
             <h3>応募フォーム</h3>
             <section class="recruitment_form">
-              <%= render partial: '/requests/requests_form', locals: { request: @request, recruitment: @recruitment } %>
+              <!--%= render partial: '/requests/requests_form', locals: { request: @request, recruitment: @recruitment } %-->
+              <%= link_to "応募する", new_recruitment_request_path(recruitment_id: @recruitment.id), class: "btn btn-primary" %>
             </section>
         </div>
       <% end %>

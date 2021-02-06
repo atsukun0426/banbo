@@ -28,7 +28,7 @@ Rails.application.routes.draw do
     get :likes, on: :collection
   end
   resources :recruitments, only: [:index, :new, :create, :show, :edit, :update, :destroy] do
-    resources :requests, only: [:show, :create, :destroy]
+    resources :requests, only: [:new, :show, :create, :destroy]
     resource :likes, only: [:create, :destroy]
   end
   get 'request_users', to: 'requests#request_users'
