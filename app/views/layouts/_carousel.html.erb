@@ -1,0 +1,40 @@
+<div id="main_visual" class="carousel slide" data-ride="carousel">
+  <ol class="carousel-indicators">
+    <li data-target="#main_visual" data-slide-to="0" class="active"></li>
+    <li data-target="#main_visual" data-slide-to="1"></li>
+    <li data-target="#main_visual" data-slide-to="2"></li>
+  </ol>
+  <!--カルーセル内枠-->
+  <div class="carousel-inner">
+  　<!--スライド01-->
+    <div class="carousel-item active">
+      <%= image_tag("/live_phot_01.jpg", :alt => "ライブ写真01", class: "d-block w-100") %>
+      <div class="carousel-caption d-none d-md-block">
+        <h3>もっと簡単にスピーディにライブを！</h3>
+      </div>
+    </div>
+    <!--スライド02-->
+    <div class="carousel-item">
+      <%= image_tag("/live_phot_01.jpg", :alt => "ライブ写真01", class: "d-block w-100") %>
+      <div class="carousel-caption d-none d-md-block">
+        <h3>もっと簡単にスピーディにライブを！</h3>
+      </div>
+    </div>
+    <!--スライド03-->
+    <div class="carousel-item">
+      <%= image_tag("/live_phot_01.jpg", :alt => "ライブ写真01", class: "d-block w-100") %>
+      <div class="carousel-caption d-none d-md-block">
+        <h3>もっと簡単にスピーディにライブを！</h3>
+      </div>
+    </div>
+  </div>
+  <!--コントローラー-->
+  <a class="carousel-control-prev" href="#main_visual" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">前に戻る</span>
+  </a>
+  <a class="carousel-control-next" href="#main_visual" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">次に進む</span>
+  </a>
+</div>

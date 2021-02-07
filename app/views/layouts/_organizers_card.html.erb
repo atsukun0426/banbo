@@ -1,0 +1,10 @@
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title">イベント主催者登録</h5>
+    <h6 class="card-subtitle mb-2 text-muted">募集する</h6>
+    <p class="card-text">イベント参加者を募集する方ははこちらからご登録お願いします。</p>
+    <a href="<%= new_organizer_registration_path %>" class="card-link">新規登録(主催者)</a>
+    <a href="<%= new_organizer_session_path %>" class="card-link">ログイン(主催者)</a>
+    <%= link_to 'ゲストログイン（主催者）', organizers_guest_sign_in_path, method: :post, class: "nav-link" %>
+  </div>
+</div>

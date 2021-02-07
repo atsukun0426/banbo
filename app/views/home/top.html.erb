@@ -7,94 +7,29 @@
 </header>
 <!--ナビゲーション-->
 <main>
-<!--メインビジュアル-->
-  <div class="py-4">
-    <div class="container">
-    <!--カルーセル外枠-->
-      <div id="main_visual" class="carousel slide" data-ride="carousel">
-        <ol class="carousel-indicators">
-          <li data-target="#main_visual" data-slide-to="0" class="active"></li>
-          <li data-target="#main_visual" data-slide-to="1"></li>
-          <li data-target="#main_visual" data-slide-to="2"></li>
-        </ol>
-        <!--カルーセル内枠-->
-        <div class="carousel-inner">
-        　<!--スライド01-->
-          <div class="carousel-item active">
-            <%= image_tag("/live_phot_01.jpg", :alt => "ライブ写真01", class: "img-fluid") %>
-            <!--img class="img-fluid" src="/public/ライブ写真01.jpg" alt="ライブ写真1"-->
-          </div>
-          <!--スライド02-->
-          <div class="carousel-item">
-            <%= image_tag("/live_phot_01.jpg", :alt => "ライブ写真02", class: "img-fluid") %>
-          </div>
-          <!--スライド03-->
-          <div class="carousel-item">
-            <%= image_tag("/live_phot_01.jpg", :alt => "ライブ写真03", class: "img-fluid") %>
+  <!--カルーセル-->
+  <%= render "/layouts/carousel" %>
+  <!--About-->
+  <div class="py-4 bg-light">
+    <section id="about">
+      <div class="container">
+        <!--上段-->
+        <div class="row mb-4">
+          <div class="col-md-8 mb-3">
+            <%= render "/layouts/about" %>
           </div>
         </div>
-        <!--コントローラー-->
-        <a class="carousel-control-prev" href="#main_visual" role="button" data-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="sr-only">前に戻る</span>
-        </a>
-        <a class="carousel-control-next" href="#main_visual" role="button" data-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="sr-only">次に進む</span>
-        </a>
-      </div>
-      <!--About-->
-      <div class="py-4 bg-light">
-        <section id="about">
-          <div class="container">
-            <!--上段-->
-            <div class="row mb-4">
-              <div class="col-md-8 mb-3">
-                <h3>バンボ!について</h3>
-                <p>バンボ！は「より良いライブ、盛り上がりを」をテーマに出演者と主催者が円滑に、ライブ、イベントを行えることを目的としたサービスです。
-                   出演者と主催者はチャットを通して、コミュニケーションを行え、出演希望、出演者募集を簡単に行えます。随時新しい機能を追加していき、より良いサービスに
-                   していきますので、まずは下記よりご登録をお願いします。
-                </p>
-                <p>
-                  出演者でのご登録、主催者でのご登録を用意しております。
-                  ご登録の際はお間違えの無いようご注意ください!
-                </p>
-              </div>
-              <div class="col-md-4">
-                <%= image_tag("/live_phot_01.jpg", :alt => "ライブ写真02", class: "img-fluid") %>
-              </div>
-            </div>
-        　　<hr>
-            <!--下段-->
-            <div class="row">
-              <div class="col-md-6">
-                <div class="card">
-                  <div class="card-body">
-                    <h5 class="card-title">ユーザー登録</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">応募する</h6>
-                    <p class="card-text">参加者募集を閲覧、応募する方はこちらからご登録お願いします。</p>
-                    <a href="<%= new_user_registration_path %>" class="card-link">新規登録</a>
-                    <a href="<%= new_user_session_path %>" class="card-link">ログイン</a>
-                    <%= link_to 'ゲストログイン（ユーザー）', users_guest_sign_in_path, method: :post, class: "nav-link" %>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="card">
-                  <div class="card-body">
-                    <h5 class="card-title">イベント主催者登録</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">募集する</h6>
-                    <p class="card-text">イベント参加者を募集する方ははこちらからご登録お願いします。</p>
-                    <a href="<%= new_organizer_registration_path %>" class="card-link">新規登録(主催者)</a>
-                    <a href="<%= new_organizer_session_path %>" class="card-link">ログイン(主催者)</a>
-                    <%= link_to 'ゲストログイン（主催者）', organizers_guest_sign_in_path, method: :post, class: "nav-link" %>
-                  </div>
-                </div>
-              </div>
-            </div>
+        <hr>
+        <!--下段-->
+        <div class="row">
+          <div class="col-md-6">
+            <%= render "/layouts/users_card" %>
           </div>
-        </section>
+          <div class="col-md-6">
+            <%= render "/layouts/organizers_card" %>
+          </div>
+        </div>
       </div>
-    </div>
+    </section>
   </div>
 </main>

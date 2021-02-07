@@ -1,0 +1,10 @@
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title">ユーザー登録</h5>
+    <h6 class="card-subtitle mb-2 text-muted">応募する</h6>
+    <p class="card-text">参加者募集を閲覧、応募する方はこちらからご登録お願いします。</p>
+    <a href="<%= new_user_registration_path %>" class="card-link">新規登録</a>
+    <a href="<%= new_user_session_path %>" class="card-link">ログイン</a>
+    <%= link_to 'ゲストログイン（ユーザー）', users_guest_sign_in_path, method: :post, class: "nav-link" %>
+  </div>
+</div>
