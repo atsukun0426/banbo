@@ -21,7 +21,7 @@
         <% if @recruitment.music_genre.present? %>
           <li class="list-group-item">音楽ジャンル:<%= @recruitment.music_genre.name %></li>
         <% end %>
-        <li class="list-group-item">開催日:<%= @recruitment.date %></li>
+        <li class="list-group-item">開催日:<%= @recruitment.date.strftime('%Y/%m/%d')%></li>
         <li class="list-group-item">出演料:<%= number_to_currency(@recruitment.price, :unit => "￥") %></li>
       </ul>
       <% if current_user %>
