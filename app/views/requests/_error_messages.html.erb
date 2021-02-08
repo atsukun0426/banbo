@@ -1,6 +1,6 @@
 <% if @error_messages.present? %>
   <div class="alert alert-warning">
-    <h2><%= @error_messages.errors.count %>件のエラーが発生しました。</h2>
+    <p><%= @error_messages.errors.count %>件のエラーが発生しました。</p>
     <ul>
       <% @error_messages.errors.full_messages.each do |message| %>
         <li><%= message %></li>
