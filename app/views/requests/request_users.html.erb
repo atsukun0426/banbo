@@ -1,6 +1,8 @@
 <% if @request_users.present? %>
   <% @request_users.each do |request| %>
+  <ul class="list-group">
     <li class="list-group-item"><a href="/recruitments/<%= request.recruitment.id %>/requests/<%= request.id %>"><%= request.name %></a></li>
+  </ul>
   <% end %>
 <% else %>
   <h6>応募者はいません。</h6>

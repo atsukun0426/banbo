@@ -11,6 +11,9 @@
         <li class="list-group-item">連絡先:<%= @request.email %></li>
         <li class="list-group-item">特記事項:<%= @request.content %></li>
       </ul>
+      <audio src= "<%= "#{@request.musicfile}" %>" controls="">
+         <a src="<%= "#{@request.musicfile}" %>">ダウンロード</a>
+      </audio>
       <div class="card-body">
         <p class="card-text">特記事項:<%= @request.content %></p>
       </div>

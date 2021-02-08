@@ -38,6 +38,6 @@ class RequestsController < ApplicationController
   private
 
   def request_params
-    params.require(:request).permit(:user_id, :recruitment_id, :name, :email, :group_name, :content)
+    params.require(:request).permit(:user_id, :recruitment_id, :name, :email, :group_name, :musicfile, :content)
   end
 end
