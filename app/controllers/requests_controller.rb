@@ -11,13 +11,16 @@ class RequestsController < ApplicationController
   end
 
   def create
-    @recruitment = Recruitment.find(params[:recruitment_id])
-    @request = @recruitment.requests.build(request_params)
-    @request.user_id = current_user.id
-    if @request.save
+    recruitment = Recruitment.find(params[:recruitment_id])
+    request = recruitment.requests.build(request_params)
+    request.user_id = current_user.id
+    if request.save
+      flash[:success] = "応募が完了しました!"
       redirect_to user_path(id: current_user.id)
     else
-      redirect_back(fallback_location: root_path)
+      @error_messages = request
+      #flash.now[:alert] = "応募に失敗しました。応募者名、出演グループ名、メールアドレスが入力されているかご確認ください。"
+      render 'requests/new'
     end
   end
 

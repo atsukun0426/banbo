@@ -4,18 +4,18 @@
     <h2>応募者詳細</h2>
     <div class="card border-primary mb-3 w-75">
       <div class="card-body">
-        <h4 class="card-title"><%= @request.name %></h4>
+        <h5 class="card-title"><%= @request.name %></h5>
       </div>
       <ul class="list-group">
-        <li class="list-group-item">グループ名:<%= @request.group_name %></li>
-        <li class="list-group-item">連絡先:<%= @request.email %></li>
-        <li class="list-group-item">特記事項:<%= @request.content %></li>
+        <li class="list-group-item">グループ名: <%= @request.group_name %></li>
+        <li class="list-group-item">連絡先: <%= @request.email %></li>
+        <li class="list-group-item">特記事項: <%= @request.content %></li>
       </ul>
       <audio src= "<%= "#{@request.musicfile}" %>" controls="">
          <a src="<%= "#{@request.musicfile}" %>">ダウンロード</a>
       </audio>
       <div class="card-body">
-        <p class="card-text">特記事項:<%= @request.content %></p>
+        <p class="card-text">特記事項: <%= @request.content %></p>
       </div>
     </div>
     </main>

@@ -11,7 +11,10 @@
 
   <body>
     <%= render "layouts/header" %>
-    <div class="container main_body py-4">
+    <% flash.each do |message_type, message| %>
+      <%= message %>
+    <% end %>
+    <div class="container main_body">
       <main style="padding-bottom: 100px;">
         <p class="notice"><%= notice %></p>
         <p class="alert"><%= alert %></p>

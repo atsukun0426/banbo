@@ -1,5 +1,5 @@
 <%= form_for(@recruitment) do |f| %>
-  <!---%= render 'shared/error_messages', object: f.object %--->
+  <%= render 'error_messages', object: f.object %>
   <div class="form-group">
     <%= f.label :title, "タイトル"%><br/>
     <%= f.text_field :title, autofocus: true, class: "form-control"%>
