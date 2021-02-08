@@ -7,6 +7,7 @@
     </div>
     <% if current_organizer %>
       <% if current_organizer.id == @recruitment.organizer.id %>
+        <%= link_to "編集", edit_recruitment_path(@recruitment), class: "btn btn-info" %>
         <%= link_to "削除", recruitment_path, method: :delete, class: "btn btn-danger" %>
       <% end %>
     <% end %>

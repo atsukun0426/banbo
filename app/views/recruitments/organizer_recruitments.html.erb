@@ -1,14 +1,20 @@
 <% if @organizer_recruitments.exists? %>
-  <% @organizer_recruitments.each do |recruitment| %>
-    <ul class="list-group list-group-horizontal">
-      <li class="list-group-item">
-        <%= link_to recruitment.title, recruitment %>
-      </li>
-      <li class="list-group-item">
-        <%= link_to "応募者一覧", request_users_path(request:{recruitment_id: recruitment.id }), method: :get, class: "btn btn-info" %>
-      </li>
-  　</ul>
-  <% end %>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">募集タイトル</th>
+        <th scope="col">応募者一覧</th>
+      </tr>
+    </thead>
+    <tbody>
+    <% @organizer_recruitments.each do |recruitment| %>
+      <tr>
+        <th scope="row"><%= link_to recruitment.title, recruitment %></th>
+        <td><%= link_to "応募者一覧", request_users_path(request:{recruitment_id: recruitment.id }), method: :get, class: "btn btn-info" %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
 <% else %>
   <h6>募集を投稿していません。</h6>
 <% end %>

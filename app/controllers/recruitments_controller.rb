@@ -20,6 +20,20 @@ class RecruitmentsController < ApplicationController
     end
   end
 
+  def edit
+    @recruitment = Recruitment.find(params[:id])
+  end
+
+  def update
+    @recruitment = Recruitment.find(params[:id])
+    if @recruitment.update(recruitment_params)
+      flash[:success] = "編集が完了しました!"
+      redirect_to organizer_path(current_organizer.id)
+    else
+      render "recruitments/edit"
+    end
+  end
+
   def destroy
     @recruitment = Recruitment.find(params[:id])
     @recruitment.destroy if @recruitment.organizer_id == current_organizer.id

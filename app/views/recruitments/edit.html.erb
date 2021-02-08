@@ -1,0 +1,32 @@
+<%= form_for(@recruitment) do |f| %>
+  <%= render 'error_messages', object: f.object %>
+  <div class="form-group">
+    <%= f.label :title, "タイトル"%><br/>
+    <%= f.text_field :title, autofocus: true, :placeholder =>"#{@recruitment.title}", class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :music_genre, "音楽ジャンル"%><br/>
+    <%= f.collection_select :music_genre_id, MusicGenre.all, :id, :name, {include_blank: "---"}, {class: ""} %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :prefecture, "開催場所"%><br/>
+    <%= f.collection_select :prefecture_id, Prefecture.all, :id, :name, {include_blank: "---"}, {class: ""} %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :date, "開催日時", class: "control-label" %><br/>
+    <%= f.date_field :date, :placeholder =>"#{@recruitment.date}", class: "form-control"%>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :price, "出演料", class: "control-label" %><br/>
+    <%= f.text_field :price, :placeholder =>"#{@recruitment.price}" ,class: "form-control"%>
+  </div>
+
+  <div class="form-group">
+    <%= f.text_area :content, placeholder: "コメントを入力して下さい。", class: "form-control" %>
+  </div>
+  <%= f.submit "編集する", class: "btn btn-primary" %>
+<% end %>
