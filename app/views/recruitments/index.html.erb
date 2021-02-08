@@ -11,7 +11,14 @@
   <div class="card">
     <div class="card-body">
       <h5 class="card-title"><%= recruitment.title %></h5>
-      <h6 class="card-subtitle mb-2 text-muted"><%= recruitment.music_genre.name %></h6>
+      <ul class="list-inline">
+        <li class="list-inline-item">
+          <h6 class="card-subtitle mb-2 text-muted"><%= recruitment.prefecture.name %></h6>
+        </li>
+        <li class="list-inline-item">
+          <h6 class="card-subtitle mb-2 text-muted"><%= recruitment.music_genre.name %></h6>
+        </li>
+      </ul>
        <%= link_to "詳細へ", recruitment, class: "btn btn-primary"%>
     </div>
   </div>

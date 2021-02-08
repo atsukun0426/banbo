@@ -4,6 +4,4 @@
     <% else %>
       <p><%=link_to "気になる解除", recruitment_likes_path(recruitment.id), method: :delete, remote: true, class: "btn btn-danger" %></p>
     <% end %>
-<% else %>
-    <p><span>気になる数: </span><%= recruitment.likes.count %></p>
 <% end %>
