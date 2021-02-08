@@ -1,6 +1,10 @@
-<% @organizer_recruitments.each do |recruitment| %>
-<div class="list-group">
-  <%= link_to recruitment.title, recruitment, class: "list-group-item list-group-item-action" %>
-  <%= link_to "応募者一覧", request_users_path(request:{recruitment_id: recruitment.id }), method: :get %>
-</div>
+<% if @organizer_recruitments.exists? %>
+  <% @organizer_recruitments.each do |recruitment| %>
+  <div class="list-group">
+    <%= link_to recruitment.title, recruitment, class: "list-group-item list-group-item-action" %>
+    <%= link_to "応募者一覧", request_users_path(request:{recruitment_id: recruitment.id }), method: :get %>
+  </div>
+  <% end %>
+<% else %>
+  <h6>募集を投稿していません。</h6>
 <% end %>

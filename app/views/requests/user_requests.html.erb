@@ -1,5 +1,8 @@
 <% provide(:title, "応募一覧") %>
-<div class="container main_body">
-<% @user_requests.each do |recruitment| %>
-  <%= link_to recruitment.title, recruitment, class: "list-group-item list-group-item-action" %>
+  <% if @user_requests.present? %>
+  <% @user_requests.each do |recruitment| %>
+    <%= link_to recruitment.title, recruitment, class: "list-group-item list-group-item-action" %>
+  <% end %>
+<% else %>
+  <h6>応募したイベントはありません。</h6>
 <% end %>

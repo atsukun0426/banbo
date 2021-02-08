@@ -1,6 +1,6 @@
 <% provide(:title, "気になるリスト") %>
 <div class="container main_body">
-<% if !@users_likes.empty? %>
+<% if @users_likes.present? %>
   <% @users_likes.each do |recruitment| %>
     <div class="list-group">
       <%= link_to recruitment.title, recruitment, class: "list-group-item list-group-item-action" %>

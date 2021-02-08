@@ -1,4 +1,7 @@
-<h3>応募者一覧</h3>
-<% @request_users.each do |request| %>
-  <li class="list-group-item"><a href="/recruitments/<%= request.recruitment.id %>/requests/<%= request.id %>"><%= request.name %></a></li>
+<% if @request_users.present? %>
+  <% @request_users.each do |request| %>
+    <li class="list-group-item"><a href="/recruitments/<%= request.recruitment.id %>/requests/<%= request.id %>"><%= request.name %></a></li>
+  <% end %>
+<% else %>
+  <h6>応募者はいません。</h6>
 <% end %>
