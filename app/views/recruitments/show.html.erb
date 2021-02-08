@@ -16,13 +16,13 @@
       <p class="card-text"><%= @recruitment.content %></p>
       <ul class="list-group">
         <% if @recruitment.prefecture.present? %>
-          <li class="list-group-item">開催場所:<%= @recruitment.prefecture.name %></li>
+          <li class="list-group-item">開催場所: <%= @recruitment.prefecture.name %></li>
         <% end %>
         <% if @recruitment.music_genre.present? %>
-          <li class="list-group-item">音楽ジャンル:<%= @recruitment.music_genre.name %></li>
+          <li class="list-group-item">音楽ジャンル: <%= @recruitment.music_genre.name %></li>
         <% end %>
-        <li class="list-group-item">開催日:<%= @recruitment.date.strftime('%Y/%m/%d')%></li>
-        <li class="list-group-item">出演料:<%= number_to_currency(@recruitment.price, :unit => "￥") %></li>
+        <li class="list-group-item">開催日: <%= @recruitment.date.strftime('%Y/%m/%d')%></li>
+        <li class="list-group-item">出演料: <%= number_to_currency(@recruitment.price) %></li>
       </ul>
       <% if current_user %>
         <div class="card-body">

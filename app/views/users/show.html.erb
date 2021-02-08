@@ -7,7 +7,7 @@
           <% if @user.image.present?%>
             <%= image_tag @user.image.url(:thumb), calss: "img-circle" %>
           <% else %>
-            <%= image_tag("/images.jpg", :alt => "画像準備中", class: "img-circle") %>
+            <%= image_tag("/noimage.jpg", :alt => "画像準備中", class: "img-circle") %>
         　 <% end %>
         </div>
         <div class="col-md-8">
@@ -22,9 +22,6 @@
           <div class="col-md-10 py-4">
             <% if current_user.id == @user.id %>
               <%= link_to "応募一覧", user_requests_path(request:{ user_id: @user.id }) , class: "btn btn-primary"%>
-            <% end %>
-            <% if current_user != @user %>
-              <%= link_to 'chatを始める', chat_path(@user.id)%>
             <% end %>
           </div>
         </div>
