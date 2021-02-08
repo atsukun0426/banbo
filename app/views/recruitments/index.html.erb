@@ -11,9 +11,9 @@
   <div class="card">
     <div class="card-body">
       <h5 class="card-title"><%= recruitment.title %></h5>
-　　　 <h6 class="card-subtitle mb-2 text-muted"><%= recruitment.prefecture.name %></h6>
-       <h6 class="card-subtitle mb-2 text-muted"><%= recruitment.music_genre.name %></h6>
+      <h6 class="card-subtitle mb-2 text-muted"><%= recruitment.music_genre.name %></h6>
        <%= link_to "詳細へ", recruitment, class: "btn btn-primary"%>
     </div>
   </div>
 <% end %>
+<%= paginate  @recruitments %>

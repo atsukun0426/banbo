@@ -3,7 +3,7 @@ class RecruitmentsController < ApplicationController
 
   def index
     @q = Recruitment.ransack(params[:q])
-    @recruitments = @q.result(distinct: true)
+    @recruitments = @q.result(distinct: true).page(params[:page])
   end
 
   def new

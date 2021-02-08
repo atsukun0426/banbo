@@ -13,18 +13,15 @@ RSpec.describe Organizer, type: :model do
     end
 
     it "ユーザーネームがない場合、無効である" do
-      organizer02.valid?
-      expect(organizer02.errors[:username]).to include("can't be blank")
+      expect(organizer02).not_to be_valid
     end
 
     it "メールアドレスがない場合、無効である" do
-      organizer03.valid?
-      expect(organizer03.errors[:email]).to include("can't be blank")
+      expect(organizer03).not_to be_valid
     end
 
     it "パスワードがない場合、無効である" do
-      organizer04.valid?
-      expect(organizer04.errors[:password]).to include("can't be blank")
+      expect(organizer04).not_to be_valid
     end
   end
 end
