@@ -11,8 +11,13 @@
       <% end %>
     <% end %>
   </div>
-  <p class="card-text"><%= @recruitment.content %></p>
   <ul class="list-group">
+    <% if @recruitment.organizer.website.present? %>
+      <li class="list-group-item">
+        主催者WEBサイト: <a href="<%= @recruitment.organizer.website %>"><%= @recruitment.organizer.website %></a>
+      </li>
+    <% end %>
+    <li class="list-group-item"><p class="card-text"><%= @recruitment.content %></p></li>
     <% if @recruitment.prefecture.present? %>
       <li class="list-group-item">開催場所: <%= @recruitment.prefecture.name %></li>
     <% end %>
