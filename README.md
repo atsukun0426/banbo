@@ -1,24 +1,31 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+サービス名】バンボ！ バンドとライブハウスのマッチングサイトです。
 
-Things you may want to cover:
+URL: https://banboweb.herokuapp.com/
 
-* Ruby version
+【作成したきっかけ】 手間を省き、もっと簡単にライブが出来ることができればと思い作成しました。 
+趣味でバンド活動をしており、ライブを行うためにはライブハウスへの応募、またはライブハウス側からSNSを通じてのスカウトが主なライブの開催方法です。
+ライブハウス側はSNSから 開催ライブのジャンルに合わせて、バンドのアカウントを見つけ出し、メッセージを通して参加者を集める手間があります。
+バンド側はライブハウスを探し、応募する手間があります。私はその手間を省き、より簡単に参加者を集めることができないかと思い開発に至りました。
 
-* System dependencies
+【工夫した点】 
+モバイルサイズでも綺麗に表示できるようにiphone5の画面サイズと比較しながらデザイン
+ユーザーモデルをUserとOrganizerで分け、認証システムを別の処理にしたこと。 
+主催者が応募者の詳細から直接アプローチをかけられるように連絡先が確認できる 
+応募者は応募する際に音声ファイルを送ることで主催者にアピールできる 
+検索機能にジャンル項目を追加し、ジャンルによるミスマッチを防ぐ
 
-* Configuration
+【苦労した点】 
+応募者一覧、気になるリストの各indexページのroutesの設定 
+ランディングページのデザイン
 
-* Database creation
+使用言語 Ruby on Rails6 
+デザイン　Boostrap 
+ログイン　Devise 
+ページネーション Kaminari 
+DB Postgres 
+画像ストレージ　AWS S3 
+インフラ Heroku 
+開発環境　MacOS Docker CircleCI Rubocop
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
