@@ -1,32 +1,76 @@
 <% provide(:title, @user.username) %>
-<div class="py-4">
-  <section id="user">
-    <div class="container">
-      <div class="row">
-        <div class="thumbnail">
-          <% if @user.image.present?%>
-            <%= image_tag @user.image.url(:thumb), calss: "img-circle" %>
-          <% else %>
-            <%= image_tag("/noimage.jpg", :alt => "画像準備中", class: "img-circle") %>
-        　 <% end %>
-        </div>
-        <div class="col-md-8">
-          <h4><%= @user.username %></h4>
-          <p><%= @user.description %></p>
-          <% if @user.prefecture_id.present? %>
-            <p>活動場所:<%= @user.prefecture.name %></p>
-          <% end %>
-        </div>
-        </div>
-        <div class="row">
-          <div class="col-md-10 py-4">
+<div class="container">
+  <div class="row pt-3 pb-5">
+    <div class="col-md-8 md-3">
+      <div class="card bg-white border-none shadow-sm mb-3">
+        <div class="card-body p-4">
+          <div class="text-center">
+            <div class="image-box">
+              <% if @user.image.present? %>
+                <img src="<%= @user.image.url(:thumb) %>" class="user-icon" alt="プロフィール画像">
+              <% else %>
+                <img src="/noimage.jpg" class="img-circle" alt="画像準備中" width="120" height="120">
+            　 <% end %>
+            </div>
+          </div>
+          <div class="row mb-3">
+            <div class="col-md-4 offset-md-4">
+              <h2 class="m-0 font-weight-bold text-center fs-28">
+                <%= @user.username %>
+              </h2>
+            </div>
+          </div>
+          <div class="text-center">
             <% if current_user.id == @user.id %>
-              <%= link_to "応募一覧", user_requests_path(request:{ user_id: @user.id }) , class: "btn btn-primary"%>
+              <%= link_to "マイ応募", user_requests_path(request:{ user_id: @user.id }) , class: "btn btn-primary"%>
             <% end %>
           </div>
+          <div class="mt-4">
+            <table class="table table-bordered">
+              <tbody>
+                <tr>
+                  <th class="bg-light text-center">
+                    活動場所
+                  </th>
+                  <td class="text-center">
+                    <% if @user.prefecture_id.present? %>
+                      <%= @user.prefecture.name %>
+                    <% end %>
+                  </td>
+                </tr>
+                <tr>
+                  <th class="bg-light text-center">
+                    関連URL
+                  </th>
+                  <td class="text-center">
+                  </td>
+                </tr>
+                <tr>
+                  <th class="bg-light text-center">
+                    自己紹介
+                  </th>
+                  <td class="text-center">
+                    <%= @user.description %>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
-        <div class="row">
-        </div>
+       </div>
+       <div class="card bg-white border-none shadow-sm mb-3">
+         <div class="card-header font-weight-bold">
+           募集　(件)
+         </div>
+         <div class="card-body text-center">
+           <div class="image-box">
+             <img src="/noimage.jpg" alt="画像準備中" width="120" height="120">
+           </div>
+         </div>
+       </div>
+      </div>
+    <div class="col-md-4">
+      <%= render "/layouts/sponsor" %>
     </div>
-  </section>
+  </div>
 </div>

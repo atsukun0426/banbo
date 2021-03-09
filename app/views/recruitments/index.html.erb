@@ -28,13 +28,16 @@
            <div class="row">
              <% @recruitments.each do |recruitment| %>
              <div class="col-md-4 col-sm-6 pb-4">
-                 <div class="card h-100">
+               <div class="card h-100">
+                 <div class="text-center">
                    <div class="card-img-top">
-                     <% if recruitment.organizer.image.present? %>
-                       <img src="<%= recruitment.organizer.image.url(:thumb) %>" class="user-icon" alt="プロフィール画像">
-                     <% else %>
-                       <img src="/noimage.jpg" alt="画像準備中" width="120" height="120">
-                     <% end %>
+                     <div class="image-box">
+                       <% if recruitment.organizer.image.present? %>
+                         <img src="<%= recruitment.organizer.image.url(:thumb) %>" class="user-icon" alt="プロフィール画像">
+                       <% else %>
+                         <img src="/noimage.jpg" alt="画像準備中" width="120" height="120">
+                       <% end %>
+                     </div>
                    </div>
                    <div class="card-body">
                      <p class="card-title font-weight-bold">
@@ -44,8 +47,9 @@
                        (<%= recruitment.requests.count %>件の応募)
                      </p>
                    </div>
-                   <%= link_to "詳細へ", recruitment, class: "btn btn-info"%>
                  </div>
+                 <%= link_to "詳細へ", recruitment, class: "btn btn-info"%>
+                </div>
              </div>
              <% end %>
            </div>
