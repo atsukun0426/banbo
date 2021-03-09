@@ -27,31 +27,31 @@
          <div class="card-body p-4">
            <div class="row">
              <% @recruitments.each do |recruitment| %>
-             <div class="col-md-4 col-sm-6 pb-4">
-               <div class="card h-100">
-                 <div class="text-center">
-                   <div class="card-img-top">
-                     <div class="image-box">
-                       <% if recruitment.organizer.image.present? %>
-                         <img src="<%= recruitment.organizer.image.url(:thumb) %>" class="user-icon" alt="プロフィール画像">
-                       <% else %>
-                         <img src="/noimage.jpg" alt="画像準備中" width="120" height="120">
-                       <% end %>
+               <div class="col-md-4 col-sm-6 pb-4">
+                 <div class="card h-100">
+                   <div class="text-center">
+                     <div class="card-img-top">
+                       <div class="image-box">
+                         <% if recruitment.organizer.image.present? %>
+                           <img src="<%= recruitment.organizer.image %>" class="user-icon" alt="プロフィール画像" width="120" height="120">
+                         <% else %>
+                           <img src="/noimage.jpg" alt="画像準備中" width="120" height="120">
+                         <% end %>
+                       </div>
                      </div>
-                   </div>
-                   <div class="card-body">
-                       <a href="recruitments/<%= recruitment.id %>">
-                         <h5 class="fs-22 font-weight-bold text-secondary">
-                           <%= recruitment.title %>
-                         </h5>
-                       </a>
-                     <p class="fs-12">
-                       (<%= recruitment.requests.count %>件の応募)
-                     </p>
+                     <div class="card-body">
+                         <a href="recruitments/<%= recruitment.id %>">
+                           <h5 class="fs-22 font-weight-bold text-secondary">
+                             <%= recruitment.title %>
+                           </h5>
+                         </a>
+                       <p class="fs-12">
+                         (<%= recruitment.requests.count %>件の応募)
+                       </p>
+                     </div>
                    </div>
                  </div>
                </div>
-             </div>
              <% end %>
            </div>
          </div>

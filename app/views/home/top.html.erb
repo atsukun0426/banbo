@@ -30,7 +30,8 @@
         <u>ユーザー第一に</u>
       </p>
       <p class="text-center fs-14">
-        常にユーザーのことを考え開発しています。サービスの品質向上を目指して運営に力を入れています！
+        常にユーザーのことを考え開発しています。</br>
+        サービスの品質向上に力を入れていきます！
       </p>
     </div>
   </div>
@@ -55,35 +56,40 @@
         <div class="card-header font-weight-bold">
           最新の出演募集
         </div>
-        <div class="card-body p-4">
-          <% @recruitments.each do |recruitment| %>
-            <div class="card">
-              <div class="row">
-                <div class="image-box">
-                  <% if recruitment.organizer.image.present? %>
-                    <img src="<%= recruitment.organizer.image %>" class="img-circle" alt="プロフィール画像" width="100" height="100">
-                  <% else %>
-                    <img src="/noimage.jpg" class="img-circle" alt="画像準備中" width="120" height="120">
-              　   <% end %>
-                </div>
-                <div class="recruitment_content">
-                    <a href="recruitments/<%= recruitment.id %>">
-                      <h5 class="fs-22 font-weight-bold text-secondary">
-                        <%= recruitment.title %>
-                      </h5>
-                    </a>
-                  <p class="my-2">主催者: <%= recruitment.organizer.username %></p>
-                  <p class="my-2">開催地: <%= recruitment.prefecture.name %></p>
-                  <p class="my-2">開催日時: <%= recruitment.date.strftime('%Y/%m/%d') %></p>
-                  <p class="mb-0">投稿日時: <%= recruitment.created_at.strftime('%Y/%m/%d') %></p>
-                </div>
-              </div>
-            </div>
-          <% end %>
-          <div class="text-right">
-            <%= link_to ">>全ての出演募集を見る", recruitments_path %>
-          </div>
-        </div>
+          <div class="card-body p-4">
+            <div class="row">
+              <% @recruitments.each do |recruitment| %>
+                <div class="col-md-4 col-sm-6 pb-4">
+                  <div class="card h-100">
+                    <div class="text-center">
+                      <div class="card-img-top">
+                        <div class="image-box">
+                          <% if recruitment.organizer.image.present? %>
+                            <img src="<%= recruitment.organizer.image %>" alt="プロフィール画像"　width="120" height="120">
+                          <% else %>
+                            <img src="/noimage.jpg" alt="画像準備中" width="120" height="120">
+                          <% end %>
+                        </div>
+                      </div>
+                      <div class="card-body">
+                        <a href="recruitments/<%= recruitment.id %>">
+                          <h5 class="fs-22 font-weight-bold text-secondary">
+                            <%= recruitment.title %>
+                          </h5>
+                        </a>
+                        <p class="fs-12">
+                          (<%= recruitment.requests.count %>件の応募)
+                        </p>
+                       </div>
+                     </div>
+                   </div>
+                 </div>
+               <% end %>
+             </div>
+             <div class="text-right">
+               <%= link_to ">>全ての出演募集を見る", recruitments_path %>
+             </div>
+           </div>
       </div>
     </div>
     <!--右側-->
