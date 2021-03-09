@@ -1,6 +1,7 @@
 <% provide(:title, "イベント主催者ログイン") %>
 <div class="container">
 <div class="row pt-3 pb-5">
+  <!--側-->
   <div class="col-md-4 order-md-1">
     <div class="card bg-white border-none mb-3">
       <div class="card-header font-weight-bold">
@@ -10,7 +11,25 @@
         <%= link_to 'ゲストログイン（主催者）', organizers_guest_sign_in_path, method: :post, class: "btn-block btn btn-secondary btn-sm text-white px-5" %>
       </div>
     </div>
+    <!--div class="card bg-white border-none mb-3">
+      <div class="card-header font-weight-bold">
+        SNSアカウントでログイン
+      </div>
+      <div class="card-body p-4">
+        <div class="text-center">
+          <p>Facebookでログイン</p>
+        </div>
+        <small>
+          <p class="pt-3">ログインに必要なアカウント情報は次の目的以外では使用されません。また、法令に定められた場合を除き第三者への提供はいたしません。</p>
+          <ul>
+            <li>ユーザーIDとしてアカウントの管理</li>
+            <li>パスワード再発行時の本人確認</li>
+          </ul>
+        </small>
+      </div>
+    </div-->
   </div>
+  <!--右側-->
   <div class="col-md-8 order-md-2">
       <div class="card bg-white border-none">
         <div class="card-header font-weight-bold">
