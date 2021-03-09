@@ -1,35 +1,82 @@
 <% provide(:title, @organizer.username) %>
-<div class="py-4">
-  <section id="user">
-    <div class="container">
-      <div class="row">
-        <div class="thumbnail">
-          <% if @organizer.image.present?%>
-            <%= image_tag @organizer.image.url(:thumb), calss: "img-thumbnail"%>
-          <% else %>
-            <%= image_tag("/noimage.jpg", :alt => "画像準備中", class: "img-circle") %>
-        　 <% end %>
-        </div>
-        <div class="col-md-8">
-          <h4><%= @organizer.username %></h4>
-          <p><%= @organizer.description %></p>
-          <a href="<%= @organizer.website %>"><%= @organizer.website %></a>
-          <% if @organizer.prefecture_id.present? %>
-            <p>居住地:<%= @organizer.prefecture.name %></p>
-          <% end %>
-        </div>
-        </div>
-        <div class="row">
-          <div class="col-md-10 py-4">
+<div class="container">
+  <div class="row pt-3 pb-5">
+    <div class="col-md-8 md-3">
+      <div class="card bg-white border-none shadow-sm mb-3">
+        <div class="card-body p-4">
+          <div class="text-center">
+            <div class="image-box">
+              <% if @organizer.image.present? %>
+                <img src="<%= @organizer.image.url(:thumb) %>" class="user-icon" alt="プロフィール画像">
+              <% else %>
+                <img src="/noimage.jpg" class="img-circle" alt="画像準備中" width="120" height="120">
+            　 <% end %>
+            </div>
+          </div>
+          <div class="row mb-3">
+            <div class="col-md-4 offset-md-4">
+              <h2 class="m-0 font-weight-bold text-center fs-28">
+                <%= @organizer.username %>
+              </h2>
+            </div>
+          </div>
+          <div class="text-center">
             <% if current_organizer.id == @organizer.id %>
-              <a href="<%= edit_organizer_registration_path %>" class="btn btn-primary">プロフィール編集</a>
-              <a href="<%= new_recruitment_path %>" class="btn btn-primary">出演募集する</a>
-              <a href="<%= organizer_recruitments_path(recruitment:{organizer_id: @organizer.id }) %>" class="btn btn-primary">マイ募集</a>
+              <a href="<%= new_recruitment_path %>" class="btn btn-primary">
+                出演募集する
+              </a>
+              <a href="<%= organizer_recruitments_path(recruitment:{organizer_id: @organizer.id}) %>" class="btn btn-primary">
+                マイ募集
+              </a>
             <% end %>
           </div>
+          <div class="mt-4">
+            <table class="table table-bordered">
+              <tbody>
+                <tr>
+                  <th class="bg-light text-center">
+                    所在地
+                  </th>
+                  <td class="text-center">
+                    <% if @organizer.prefecture_id.present? %>
+                      <%= @organizer.prefecture.name %>
+                    <% end %>
+                  </td>
+                </tr>
+                <tr>
+                  <th class="bg-light text-center">
+                    関連URL
+                  </th>
+                  <td class="text-center">
+                    <a href="<%= @organizer.website %>"><%= @organizer.website %></a>
+                  </td>
+                </tr>
+                <tr>
+                  <th class="bg-light text-center">
+                    自己紹介
+                  </th>
+                  <td class="text-center">
+                    <%= @organizer.description %>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
-        <div class="row">
-        </div>
+       </div>
+       <div class="card bg-white border-none shadow-sm mb-3">
+         <div class="card-header font-weight-bold">
+           募集　(<%= @organizer.recruitments.count %>件)
+         </div>
+         <div class="card-body text-center">
+           <div class="image-box">
+             <img src="/noimage.jpg" alt="画像準備中" width="120" height="120">
+           </div>
+         </div>
+       </div>
+      </div>
+    <div class="col-md-4">
+      <%= render "/layouts/sponsor" %>
     </div>
-  </section>
+  </div>
 </div>

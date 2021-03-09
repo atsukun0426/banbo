@@ -5,9 +5,9 @@
       <div class="row">
         <div class="thumbnail">
           <% if @user.image.present?%>
-            <%= image_tag @user.image.url(:thumb), calss: "iimg-fluid mg-circle" %>
+            <%= image_tag @user.image.url(:thumb), calss: "img-circle" %>
           <% else %>
-            <%= image_tag("/noimage.jpg", :alt => "画像準備中", class: "iimg-fluid img-circle") %>
+            <%= image_tag("/noimage.jpg", :alt => "画像準備中", class: "img-circle") %>
         　 <% end %>
         </div>
         <div class="col-md-8">

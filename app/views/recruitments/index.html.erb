@@ -1,26 +1,60 @@
 <% provide(:title, "募集一覧") %>
-<%= search_form_for @q do |f| %>
- <%= f.label :title, "キーワード" %>
- <%= f.search_field :title_cont %>
- <%= f.collection_select :prefecture_id_eq, Prefecture.all, :id, :name, :include_blank => '指定なし' %>
- <%= f.collection_select :music_genre_id_eq, MusicGenre.all, :id, :name, :include_blank => '指定なし' %>
- <%= f.submit "検索" %>
-<% end %>
-
-<% @recruitments.each do |recruitment| %>
-  <div class="card">
-    <div class="card-body">
-      <h5 class="card-title"><%= recruitment.title %></h5>
-      <ul class="list-inline">
-        <li class="list-inline-item">
-          <h6 class="card-subtitle mb-2 text-muted"><%= recruitment.prefecture.name %></h6>
-        </li>
-        <li class="list-inline-item">
-          <h6 class="card-subtitle mb-2 text-muted"><%= recruitment.music_genre.name %></h6>
-        </li>
-      </ul>
-       <%= link_to "詳細へ", recruitment, class: "btn btn-primary"%>
+<div class="container">
+  <div class="row pt-3 pb-5">
+    <!--左側-->
+    <div class="col-md-8 md-3">
+      <div class="card bg-white border-none shadow-sm mb-3">
+        <div class="card-header font-weight-bold">
+          検索
+        </div>
+        <div class="card-body p-4">
+          <div class="d-md-block d-none">
+            <div class="form-inline">
+              <%= search_form_for @q do |f| %>
+               <%= f.search_field :title_cont %>
+               <%= f.collection_select :prefecture_id_eq, Prefecture.all, :id, :name, :include_blank => '指定なし' %>
+               <%= f.collection_select :music_genre_id_eq, MusicGenre.all, :id, :name, :include_blank => '指定なし' %>
+               <%= f.submit "検索", class: "btn btn-info"%>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card bg-white border-none shadow-sm mb-3">
+         <div class="card-header font-weight-bold">
+           募集　(<%= @recruitments.count %>件)
+         </div>
+         <div class="card-body p-4">
+           <div class="row">
+             <% @recruitments.each do |recruitment| %>
+             <div class="col-md-4 col-sm-6 pb-4">
+                 <div class="card h-100">
+                   <div class="card-img-top">
+                     <% if recruitment.organizer.image.present? %>
+                       <img src="<%= recruitment.organizer.image.url(:thumb) %>" class="user-icon" alt="プロフィール画像">
+                     <% else %>
+                       <img src="/noimage.jpg" alt="画像準備中" width="120" height="120">
+                     <% end %>
+                   </div>
+                   <div class="card-body">
+                     <p class="card-title font-weight-bold">
+                       <%= recruitment.title %>
+                     </p>
+                     <p class="fs-12">
+                       (<%= recruitment.requests.count %>件の応募)
+                     </p>
+                   </div>
+                   <%= link_to "詳細へ", recruitment, class: "btn btn-info"%>
+                 </div>
+             </div>
+             <% end %>
+           </div>
+         </div>
+       </div>
+    </div>
+    <!--右側-->
+    <div class="col-md-4">
+      <%= render "/layouts/sponsor" %>
     </div>
   </div>
-<% end %>
-<%= paginate  @recruitments %>
+</div>
