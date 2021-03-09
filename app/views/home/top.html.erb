@@ -2,17 +2,93 @@
 <!--カルーセル-->
 <%= render "carousel" %>
 <!--About-->
-<div class="py-4 bg-light">
-  <section id="about">
-    <div class="container">
-      <!--上段-->
-      <div class="row mb-4">
-        <div class="col-md-8 mb-3">
-          <%= render "about" %>
+<div class="container mb-4">
+  <h2 class="font-weight-bold text-center my-3">バンボ！とは</h2>
+  <p class="text-center mb-5">
+    ライブを手軽に簡単に!!
+  </p>
+  <div class="row">
+    <div class="col-md-4">
+      <p class="font-weight-bold text-center">
+        <u>手軽な応募と簡単な募集</u>
+      </p>
+      <p class="text-center fs-14">
+        手軽にライブ募集を検索でき、応募も簡単!
+        出演バンド募集もシンプル操作でらくらく♪
+      </p>
+    </div>
+    <div class="col-md-4">
+      <p class="font-weight-bold text-center">
+        <u>シンプルな機能性</u>
+      </p>
+      <p class="text-center fs-14">
+        「使いやすさ」を重視したレイアウト。直感的に操作できるようにしました。
+      </p>
+    </div>
+    <div class="col-md-4">
+      <p class="font-weight-bold text-center">
+        <u>ユーザー第一に</u>
+      </p>
+      <p class="text-center fs-14">
+        常にユーザーのことを考え開発しています。サービスの品質向上を目指して運営に力を入れています！
+      </p>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row pt-3 pb-5">
+    <!--左側-->
+    <div class="col-md-8">
+      <div class="card bg-white border-none shadow-sm mb-3">
+        <div class="card-header font-weight-bold">
+          お知らせ
+        </div>
+        <div class="card-body">
+          <div class="list-group list-group-flush">
+            <div class="list-group-item">
+              2021年2月22日　サービス開始
+            </div>
+          </div>
         </div>
       </div>
-      <hr>
-      <!--下段-->
+      <div class="card bg-white border-none shadow-sm mb-3">
+        <div class="card-header font-weight-bold">
+          最新の出演募集
+        </div>
+        <div class="card-body p-4">
+          <% @recruitments.each do |recruitment| %>
+            <div class="card">
+              <div class="row">
+                <div class="image-box">
+                  <% if recruitment.organizer.image.present? %>
+                    <img src="<%= recruitment.organizer.image %>" class="img-circle" alt="プロフィール画像" width="100" height="100">
+                  <% else %>
+                    <img src="/noimage.jpg" class="img-circle" alt="画像準備中" width="120" height="120">
+              　   <% end %>
+                </div>
+                <div class="recruitment_content">
+                    <a href="recruitments/<%= recruitment.id %>">
+                      <h5 class="fs-22 font-weight-bold text-secondary">
+                        <%= recruitment.title %>
+                      </h5>
+                    </a>
+                  <p class="my-2">主催者: <%= recruitment.organizer.username %></p>
+                  <p class="my-2">開催地: <%= recruitment.prefecture.name %></p>
+                  <p class="my-2">開催日時: <%= recruitment.date.strftime('%Y/%m/%d') %></p>
+                  <p class="mb-0">投稿日時: <%= recruitment.created_at.strftime('%Y/%m/%d') %></p>
+                </div>
+              </div>
+            </div>
+          <% end %>
+          <div class="text-right">
+            <%= link_to ">>全ての出演募集を見る", recruitments_path %>
+          </div>
+        </div>
+      </div>
     </div>
-  </section>
+    <!--右側-->
+    <div class="col-md-4">
+      <%= render "/layouts/sponsor" %>
+    </div>
+  </div>
 </div>

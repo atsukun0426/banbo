@@ -40,16 +40,17 @@
                      </div>
                    </div>
                    <div class="card-body">
-                     <p class="card-title font-weight-bold">
-                       <%= recruitment.title %>
-                     </p>
+                       <a href="recruitments/<%= recruitment.id %>">
+                         <h5 class="fs-22 font-weight-bold text-secondary">
+                           <%= recruitment.title %>
+                         </h5>
+                       </a>
                      <p class="fs-12">
                        (<%= recruitment.requests.count %>件の応募)
                      </p>
                    </div>
                  </div>
-                 <%= link_to "詳細へ", recruitment, class: "btn btn-info"%>
-                </div>
+               </div>
              </div>
              <% end %>
            </div>
