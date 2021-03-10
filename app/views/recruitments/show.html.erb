@@ -1,38 +1,90 @@
 <% provide(:title, @recruitment.title) %>
-<h2><%= @recruitment.title %></h2>
-<div class="card border-primary mb-3 w-75">
-  <div class="card-body">
-    <div class='star-btn' id="like_<%= @recruitment.id %>">
-      <%= render "likes/like", recruitment: @recruitment %>
+<div class="container">
+  <div class="row pt-3 pb-5">
+    <div class="col-md-8 offset-md-2">
+      <div class="card bg-white border-none">
+        <div class="card-header font-weight-bold">
+          <%= @recruitment.title %>
+          <div class="text-right">
+            <div class='star-btn' id="like_<%= @recruitment.id %>">
+              <%= render "likes/like", recruitment: @recruitment %>
+            </div>
+            <% if current_organizer %>
+              <% if current_organizer.id == @recruitment.organizer.id %>
+                <%= link_to "編集", edit_recruitment_path(@recruitment), class: "btn btn-info" %>
+                <%= link_to "削除", recruitment_path, method: :delete, class: "btn btn-danger" %>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+        <div class="card-body p-4">
+          <div class="col-md-12">
+            <table class="table table-bordered">
+              <tr>
+                <th>主催者WEBサイト:</th>
+                  <td>
+                    <div class="">
+                      <a href="<%= @recruitment.organizer.website %>"><%= @recruitment.organizer.website %></a>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <th>説明</th>
+                  <td>
+                    <div class="">
+                      <%= @recruitment.content %>
+                    </div>
+                  </td>
+                </tr>
+
+                <tr>
+                  <th>音楽ジャンル</th>
+                  <td>
+                    <div class="">
+                      <%= @recruitment.music_genre.name %>
+                    </div>
+                  </td>
+                </tr>
+
+                <tr>
+                  <th>開催場所</th>
+                  <td>
+                    <div class="">
+                      <%= @recruitment.prefecture.name %>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <th>開催日</th>
+                  <td>
+                    <div class="">
+                      <%= @recruitment.date.strftime('%Y/%m/%d')%>
+                  　</div>
+                　</td>
+                </tr>
+                <tr>
+                  <th>出演料</th>
+                  <td>
+                    <div class="">
+                      <%= number_to_currency(@recruitment.price) %>
+                  　</div>
+                　</td>
+                </tr>
+              </table>
+              <div class="text-center">
+                <% if current_user %>
+                  <div class="card-body">
+                    <section class="recruitment_form">
+                      <%= link_to "応募する", new_recruitment_request_path(recruitment_id: @recruitment.id), class: "btn btn-primary" %>
+                    </section>
+                  </div>
+                <% end %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <% if current_organizer %>
-      <% if current_organizer.id == @recruitment.organizer.id %>
-        <%= link_to "編集", edit_recruitment_path(@recruitment), class: "btn btn-info" %>
-        <%= link_to "削除", recruitment_path, method: :delete, class: "btn btn-danger" %>
-      <% end %>
-    <% end %>
   </div>
-  <ul class="list-group">
-    <% if @recruitment.organizer.website.present? %>
-      <li class="list-group-item">
-        主催者WEBサイト: <a href="<%= @recruitment.organizer.website %>"><%= @recruitment.organizer.website %></a>
-      </li>
-    <% end %>
-    <li class="list-group-item"><p class="card-text"><%= @recruitment.content %></p></li>
-    <% if @recruitment.prefecture.present? %>
-      <li class="list-group-item">開催場所: <%= @recruitment.prefecture.name %></li>
-    <% end %>
-    <% if @recruitment.music_genre.present? %>
-      <li class="list-group-item">音楽ジャンル: <%= @recruitment.music_genre.name %></li>
-    <% end %>
-    <li class="list-group-item">開催日: <%= @recruitment.date.strftime('%Y/%m/%d')%></li>
-    <li class="list-group-item">出演料: <%= number_to_currency(@recruitment.price) %></li>
-  </ul>
-  <% if current_user %>
-    <div class="card-body">
-      <section class="recruitment_form">
-        <%= link_to "応募する", new_recruitment_request_path(recruitment_id: @recruitment.id), class: "btn btn-primary" %>
-      </section>
-  </div>
-  <% end %>
 </div>
