@@ -1,22 +1,62 @@
 <% provide(:title, @request.name) %>
-<div class="container main_body">
-  <main>
-    <h2>応募者詳細</h2>
-    <div class="card border-primary mb-3 w-75">
-      <div class="card-body">
-        <h5 class="card-title"><%= @request.name %></h5>
-      </div>
-      <ul class="list-group">
-        <li class="list-group-item">グループ名: <%= @request.group_name %></li>
-        <li class="list-group-item">連絡先: <%= @request.email %></li>
-        <li class="list-group-item">特記事項: <%= @request.content %></li>
-      </ul>
-      <audio src= "<%= "#{@request.musicfile}" %>" controls="">
-         <a src="<%= "#{@request.musicfile}" %>">ダウンロード</a>
-      </audio>
-      <div class="card-body">
-        <p class="card-text">特記事項: <%= @request.content %></p>
+<div class="container">
+  <div class="row pt-3 pb-5">
+    <div class="col-md-8 offset-md-2">
+      <div class="card bg-white border-none">
+        <div class="card-header font-weight-bold">
+          応募者詳細
+        </div>
+        <div class="card-body p-4">
+          <div class="col-md-12">
+            <table class="table table-bordered">
+              <tr>
+                <th>応募者名</th>
+                  <td>
+                    <div class="">
+                      <%= @request.name %>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <th>グループ名</th>
+                  <td>
+                    <div class="">
+                      <%= @request.group_name %>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <th>連絡先</th>
+                  <td>
+                    <div class="">
+                      <%= @request.email %>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <th>サンプル音源</th>
+                  <td>
+                    <div class="">
+                      <audio src= "<%= "#{@request.musicfile}" %>" controls="">
+                         <a src="<%= "#{@request.musicfile}" %>">ダウンロード</a>
+                      </audio>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <th>特記事項</th>
+                  <td>
+                    <div class="">
+                      <%= @request.content %>
+                  　</div>
+                　</td>
+                </tr>
+              </table>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-    </main>
+  </div>
 </div>
