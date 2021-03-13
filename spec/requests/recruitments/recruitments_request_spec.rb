@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "Recruitment", type: :request do
+RSpec.describe "Recruitments", type: :request do
   describe "GET /recruitments" do
     before do
       @organizer = create(:organizer)
